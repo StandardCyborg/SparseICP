@@ -44,7 +44,7 @@ namespace nanoflann {
         inline void query(const num_t *query_point, const size_t num_closest, IndexType *out_indices, num_t *out_distances_sq) const {
             nanoflann::KNNResultSet<typename MatrixType::Scalar,IndexType> resultSet(num_closest);
             resultSet.init(out_indices, out_distances_sq);
-            index->findNeighbors(resultSet, query_point, nanoflann::SearchParams());
+            index->findNeighbors(resultSet, query_point, nanoflann::SearchParameters());
         }
         /// Query for the closest points to a given point (entered as query_point[0:dim-1]).
         inline IndexType closest(const num_t *query_point) const {
